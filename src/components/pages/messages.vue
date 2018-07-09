@@ -3,13 +3,16 @@
         <app-header :title='title'></app-header>        
         <div class="contents">
             <b-loading :is-full-page="false" :active.sync="isLoading" :can-cancel="true"></b-loading>
-            <card v-for="(message, index) in messages.child_messages" 
+            <div v-for='message in messages'>
+            <card v-for="(child_message, index) in message.child_messages" 
                 :key="index"
-                :id="message.goal_id"
-                :message-call="messages.message_call"
-                :messages="message.messages"
+                :content="child_message.content"
+                :call="child_message.message_call"
+                :message="child_message.message"
+                :id="child_message.goal_id"
                 @remove="removeMessage"
                 ></card>
+            </div>    
         </div>
         <fab :icon="fabIcon" @click="isComponentModalActive = true"></fab>
         <app-footer></app-footer>
@@ -112,10 +115,10 @@ export default {
           }
         });
     },
-    removeMessage(id, call) {
+    removeMessage(id, call,content) {
       this.$dialog.confirm({
         title: "メッセージ削除",
-        message: "『" + id + "』を削除しますか？",
+        message: "『" + content + "の" + call + "回目" + "』を削除しますか？",
         confirmText: "削除",
         type: "is-danger",
         hasIcon: true,
