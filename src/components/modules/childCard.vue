@@ -40,12 +40,13 @@ export default {
   created() {
     this.icon = this.sex
       ? {
-          icon: "gender-male",
-          type: "is-info"
-        }
-      : {
           icon: "gender-female",
           type: "is-danger"
+        }
+      : {
+          icon: "gender-male",
+          type: "is-info"
+
         };
   },
   props: ["id", "nickname", "sex", "selected"]
