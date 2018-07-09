@@ -4,17 +4,6 @@
             <p class="modal-card-title">目標追加</p>
         </header>
         <section class="modal-card-body">
-            <b-field label="子ども名">
-                <b-select
-                    v-model="data.child_id"
-                    placeholder="子ども名"
-                    icon="account"
-                    required>
-                    <option v-for="option in options.children"
-                    :key="option.child_id" :value="option.child_id">
-                    {{option.nickname}}</option>
-                </b-select>
-            </b-field>
             <b-field label="目標名">
                 <b-input
                     type="text"
@@ -57,9 +46,6 @@ export default {
         content: "",
         criteria: null,
         deadline: new Date()
-      },
-      options: {
-        children: []
       }
     };
   },

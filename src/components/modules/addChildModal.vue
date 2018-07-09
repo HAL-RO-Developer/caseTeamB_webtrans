@@ -38,21 +38,21 @@
 </template>
 
 <script>
-    export default {
-        data(){
-            return{
-                data:{
-                    device_id: "",
-                    nickname: "",
-                    birthday: new Date(),
-                    sex: 0
-                }
-            }
-        },
-        methods:{
-            add(){
-                this.$emit('add', this.data)
-            }
-        }
+export default {
+  data() {
+    return {
+      data: {
+        device_id: "",
+        nickname: "",
+        birthday: new Date(),
+        sex: 0
+      }
+    };
+  },
+  methods: {
+    add() {
+      this.$emit("add", this.data);
     }
+  }
+};
 </script>

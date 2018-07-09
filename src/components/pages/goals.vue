@@ -64,7 +64,6 @@ export default {
           console.log(response);
           this.isLoading = false;
           this.goals = response.data.goals;
-          //this.child_goals = this.goals.child_goals;
         })
         .catch(err => {
           this.isLoading = false;
@@ -91,10 +90,11 @@ export default {
     addGoal(data) {
       this.isComponentModalActive = false;
       var deadline = moment(data.deadline);
+      var child_id = localStorage.getItem("child_id");
       console.log(data);
       http
         .addGoal(
-          Number(data.child_id),
+          Number(child_id),
           data.content,
           Number(data.criteria),
           deadline.format("YYYY-MM-DD")

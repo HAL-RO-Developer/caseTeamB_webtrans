@@ -92,7 +92,7 @@ class Http {
     }
     // 目標削除
     removeGoal(goal_id) {
-        return api.delete('/goal/' + goal_id, {
+        return this.api.delete('/goal/' + goal_id, {
         })
     }
     // 達成数変更
