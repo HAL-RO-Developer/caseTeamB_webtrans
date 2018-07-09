@@ -4,17 +4,6 @@
             <span class="title is-6">メッセージ</span>
         </header>
         <section class="modal-card-body">
-            <b-field label="目標一覧">
-                <b-select
-                    type="text"
-                    v-model="data.goal_id"
-                    placeholder="目標一覧"
-                    required>
-                    <option v-for="goal in goals"
-                    :key="goal.goal_id" :value="goal.goal_id">
-                    {{goal.content}}</option>
-                </b-select>
-            </b-field>
             <b-field label="回数:">
                 <b-input type="number" v-model="data.message_call" min="1"></b-input>
             </b-field>
@@ -38,27 +27,12 @@ export default {
         message_call: null,
         message: ""
       },
-      goals: []
     };
   },
   methods: {
     add() {
       this.$emit("add", this.data);
-    },
-    getGoal() {
-      http
-        .getGoal()
-        .then(response => {
-          console.log(response);
-          this.goals = response.data.goals.child_goals;
-        })
-        .catch(error => {
-          console.log(error.response);
-        });
     }
-  },
-  created: function(){
-      this.getGoal();
   }
 };
 </script>
