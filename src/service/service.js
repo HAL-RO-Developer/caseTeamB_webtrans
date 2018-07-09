@@ -27,34 +27,43 @@ class Http {
     RemoveToken() {
         localStorage.removeItem("token")
     }
-
+    // サインイン
     signin(name, pass) {
         return this.api.post('/signin', {
             name,
             pass
         })
     }
+    // サインアップ
     signup(name, pass) {
         return this.api.post('/signup', {
             name,
             pass
         })
     }
-
+    // ユーザー削除
+    removeUser() {
+        return this.api.delete('/user')
+    }
+    // デバイスID発行
     registDevice(goal_id) {
         return this.api.post('/device', {
             goal_id
         })
     }
+    // デバイスID取得
     getDevice() {
         return this.api.get('/device')
     }
+    // デバイスID削除
     removeDevice(device_id) {
         return this.api.delete('/device/' + device_id)
     }
+    // 子ども情報取得
     getChild() {
         return this.api.get('/child')
     }
+    // 子ども情報追加
     addChild(nickname, birthday, sex) {
         return this.api.post('/child', {
             nickname,
@@ -62,9 +71,11 @@ class Http {
             sex
         })
     }
+    // 子ども情報削除
     removeChild(child_id) {
         return this.api.delete('/child/' + child_id)
     }
+    // 目標追加
     addGoal(child_id, content, criteria, deadline) {
         return this.api.post('/goal', {
             child_id,
@@ -73,19 +84,23 @@ class Http {
             deadline
         })
     }
-    putGoal(goal_id, device_id) {
-        return api.put('/goal', {
-            goal_id,
-            device_id
-        })
-    }
+    // 目標取得
     getGoal() {
         return this.api.get('/goal')
     }
+    // 目標削除
     removeGoal(goal_id) {
         return api.delete('/goal' + goal_id, {
         })
     }
+    // 達成数変更
+    putAchieved(goal_id, approval) {
+        return this.api.put('/approval', {
+            goal_id,
+            approval
+        })
+    }
+    // メッセージ追加
     addMessage(goal_id, message_call, message) {
         return this.api.post('/message', {
             goal_id,
@@ -93,9 +108,11 @@ class Http {
             message
         })
     }
+    // メッセージ取得
     getMessage() {
         return this.api.get('/message')
     }
+    // メッセージ削除
     removeMessage(goal_id, message_call) {
         return this.api.delete('/message/' + goal_id + message_call)
     }
