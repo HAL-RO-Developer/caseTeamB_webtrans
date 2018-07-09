@@ -8,7 +8,9 @@ class Http {
 
     Load() {
         this.api = axios.create({
-            baseURL: 'https://caseteambserver-wkxcvgrrxm.now.sh',
+            baseURL: 'http://localhost:8080',
+            //baseURL: 'https://caseteamaserver-lyozxwqhak.now.sh',
+            //baseURL: localStorage.getItem('server'),
             headers: {
                 'ContentType': 'application/json',
                 'Authorization': this.GetToken()
@@ -90,7 +92,7 @@ class Http {
     }
     // 目標削除
     removeGoal(goal_id) {
-        return api.delete('/goal' + goal_id, {
+        return api.delete('/goal/' + goal_id, {
         })
     }
     // 達成数変更

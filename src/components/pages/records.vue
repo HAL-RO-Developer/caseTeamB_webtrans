@@ -37,7 +37,7 @@ export default {
     },
     data() {
         return {
-            title: "記録",
+            title: "目標",
             child_id: "",
             filter: this.$route.params.filter,
             chartData:{},

@@ -18,9 +18,9 @@
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
             <modal-form @add="addChild"></modal-form>
         </b-modal>
-        
     </div>
 </template>
+
 <script>
 import moment from "moment";
 import http from '../../service/service';
