@@ -8,7 +8,7 @@ class Http {
 
     Load() {
         this.api = axios.create({
-            baseURL: 'https://caseteambserver-wkxcvgrrxm.now.sh',
+            baseURL: 'http://localhost:8080',
             headers: {
                 'ContentType': 'application/json',
                 'Authorization': this.GetToken()
